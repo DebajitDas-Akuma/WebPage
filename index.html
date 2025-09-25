@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Code Alchemist | Home</title>
+    <meta name="description" content="Transforming ideas into intelligent solutions with AI, ML, and cutting-edge web technologies">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#f5f3ff'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .vanta-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .skill-pill:hover {
+            background-color: #6366f1;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Vanta.js Background -->
+    <div id="vanta-bg" class="vanta-container"></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-primary font-bold text-xl">AI Alchemist</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-900 hover:text-primary px-3 py-2 font-medium">Home</a>
+                    <a href="#about" class="text-gray-900 hover:text-primary px-3 py-2 font-medium">About</a>
+                    <a href="#services" class="text-gray-900 hover:text-primary px-3 py-2 font-medium">Services</a>
+                    <a href="#projects" class="text-gray-900 hover:text-primary px-3 py-2 font-medium">Projects</a>
+                    <a href="#arduino" class="text-gray-900 hover:text-primary px-3 py-2 font-medium">Arduino</a>
+                    <a href="https://forms.gle/qffb5qRU4r8cAYoPA" class="text-gray-900 hover:text-primary px-3 py-2 font-medium">Contact</a>
+</div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-900">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-3 px-4">
+            <a href="#home" class="block text-gray-900 hover:text-primary py-2 font-medium">Home</a>
+            <a href="#about" class="block text-gray-900 hover:text-primary py-2 font-medium">About</a>
+            <a href="#services" class="block text-gray-900 hover:text-primary py-2 font-medium">Services</a>
+            <a href="#projects" class="block text-gray-900 hover:text-primary py-2 font-medium">Projects</a>
+            <a href="#arduino" class="block text-gray-900 hover:text-primary py-2 font-medium">Arduino</a>
+            <a href="#contact" class="block text-gray-900 hover:text-primary py-2 font-medium">Contact</a>
+</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <span id="typewriter" class="text-primary"></span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8">I specialize in crafting AI/ML models and building robust web applications that solve real-world problems with cutting-edge technology.</p>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const phrases = [
+                            "Transforming Ideas Into Intelligent Solutions",
+                            "Building AI That Makes a Difference",
+                            "Coding the Future of Technology",
+                            "Solving Problems With Machine Learning"
+                        ];
+                        let currentPhrase = 0;
+                        let currentChar = 0;
+                        let isDeleting = false;
+                        const typewriter = document.getElementById('typewriter');
+                        
+                        function type() {
+                            const fullText = phrases[currentPhrase];
+                            
+                            if (isDeleting) {
+                                typewriter.textContent = fullText.substring(0, currentChar - 1);
+                                currentChar--;
+                            } else {
+                                typewriter.textContent = fullText.substring(0, currentChar + 1);
+                                currentChar++;
+                            }
+                            
+                            if (!isDeleting && currentChar === fullText.length) {
+                                setTimeout(() => isDeleting = true, 2000);
+                            } else if (isDeleting && currentChar === 0) {
+                                isDeleting = false;
+                                currentPhrase = (currentPhrase + 1) % phrases.length;
+                            }
+                            
+                            setTimeout(type, isDeleting ? 50 : 100);
+                        }
+                        
+                        type();
+                    });
+                </script>
+                <div class="flex space-x-4">
+                <a href="#projects" class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition duration-300">View Projects</a>
+                <a href="#services" class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-medium transition duration-300">My Services</a>
+                <a href="https://forms.gle/qffb5qRU4r8cAYoPA" class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-medium transition duration-300">Contact Me</a>
+</div>
+                <div class="mt-8 flex space-x-6">
+                    <a href="https://github.com/DebajitDas-Akuma" target="_blank" class="text-gray-600 hover:text-primary transition duration-300">
+                        <i data-feather="github" class="w-6 h-6">GitHub</i>
+                    </a>
+                    <a href="https://instagram.com/_debajit_stark_" target="_blank" class="text-gray-600 hover:text-pink-600 transition duration-300">
+                        <i data-feather="instagram" class="w-6 h-6">Instagram</i>
+                    </a>
+                    <a href="https://chess.com/member/debajit_05" target="_blank" class="text-gray-600 hover:text-green-600 transition duration-300">
+                        <i data-feather="chess" class="w-6 h-6">Chess ID</i>
+                    </a>
+                </div>
+</div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary">
+                        <img src="Photos/profile.jpg" alt="Professional Headshot" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-5 -right-5 bg-white p-3 rounded-full shadow-lg">
+                        <div class="bg-primary text-white p-3 rounded-full">
+                            <i data-feather="cpu" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="py-16 bg-white px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Services <span class="text-primary">Available</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-secondary p-8 rounded-xl shadow-sm text-center hover:shadow-md hover:bg-white hover:border hover:border-primary hover:border-opacity-30 transition duration-300">
+<div class="bg-primary bg-opacity-10 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="globe" class="text-primary w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-3">Basic Webpages</h3>
+                    <p class="text-gray-600">Custom, responsive websites built with HTML, CSS and JavaScript</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-secondary p-8 rounded-xl shadow-sm text-center hover:shadow-md hover:bg-white hover:border hover:border-primary hover:border-opacity-30 transition duration-300">
+<div class="bg-primary bg-opacity-10 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="code" class="text-primary w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-3">Backend Development</h3>
+                    <p class="text-gray-600">Robust backend solutions using Python and C++ for performance-critical applications</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-secondary p-8 rounded-xl shadow-sm text-center hover:shadow-md hover:bg-white hover:border hover:border-primary hover:border-opacity-30 transition duration-300">
+<div class="bg-primary bg-opacity-10 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="book-open" class="text-primary w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-3">Programming Guidance</h3>
+                    <p class="text-gray-600">Personalized mentoring in web development, Python and C++ fundamentals</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-secondary p-8 rounded-xl shadow-sm text-center hover:shadow-md hover:bg-white hover:border hover:border-primary hover:border-opacity-30 transition duration-300">
+<div class="bg-primary bg-opacity-10 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="cpu" class="text-primary w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-3">Technical Consultation</h3>
+                    <p class="text-gray-600">Expert advice on architecture, hardware, optimization and best practices for your projects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Showcase -->
+    <section class="py-16 bg-secondary px-4">
+<div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">My <span class="text-primary">Technical Arsenal</span></h2>
+            <div class="relative h-96 overflow-hidden">
+                <div class="skill-slider-container">
+                    <!-- AI/ML Card -->
+                    <div class="skill-slide active">
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center h-full">
+                            <div class="bg-primary bg-opacity-10 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                                <i data-feather="activity" class="text-primary w-10 h-10"></i>
+                            </div>
+                            <h3 class="font-semibold text-xl mb-3">Hardwares</h3>
+                            <p class="text-gray-600">Basic understanding, Gaming Specificatons, Performance, Efficiency</p>
+                        </div>
+                    </div>
+                    
+
+                    <!-- Web Dev Card -->
+                    <div class="skill-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center h-full">
+                            <div class="bg-primary bg-opacity-10 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                                <i data-feather="code" class="text-primary w-10 h-10"></i>
+                            </div>
+                            <h3 class="font-semibold text-xl mb-3">Web Dev</h3>
+                            <p class="text-gray-600">HTML, CSS, JavaScript</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Robotic Language -->
+                    <div class="skill-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center h-full">
+                            <div class="bg-primary bg-opacity-10 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                                <i data-feather="database" class="text-primary w-10 h-10"></i>
+                            </div>
+                            <h3 class="font-semibold text-xl mb-3">Data Science</h3>
+                            <p class="text-gray-600">C++, Python, DSA</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Trading -->
+                    <div class="skill-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center h-full">
+                            <div class="bg-primary bg-opacity-10 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                                <i data-feather="cloud" class="text-primary w-10 h-10"></i>
+                            </div>
+                            <h3 class="font-semibold text-xl mb-3">Stock Market</h3>
+                            <p class="text-gray-600">Basic Trading, Chart Analysis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.skill-slide');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active', 'next', 'prev');
+                    
+                    if (i === index) {
+                        slide.classList.add('active');
+                    } else if (i === (index + 1) % slides.length) {
+                        slide.classList.add('next');
+                    } else if (i === (index - 1 + slides.length) % slides.length) {
+                        slide.classList.add('prev');
+                    }
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Initialize
+            showSlide(currentSlide);
+            
+            // Auto rotate every 2 seconds
+            setInterval(nextSlide, 2000);
+        });
+    </script>
+    <style>
+        .skill-slider-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .skill-slide {
+            position: absolute;
+            width: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0.5;
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+        
+        .skill-slide.active {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 1;
+            z-index: 3;
+        }
+        
+        .skill-slide.next {
+            transform: translate(calc(-50% + 200px), -50%) scale(0.9);
+            opacity: 0.7;
+            z-index: 2;
+        }
+        
+        .skill-slide.prev {
+            transform: translate(calc(-50% - 200px), -50%) scale(0.9);
+            opacity: 0.7;
+            z-index: 2;
+        }
+    </style>
+<!-- About Section -->
+<section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                <div class="relative">
+                    <img src="http://static.photos/workspace/640x360/23" alt="Working on laptop" class="rounded-xl shadow-lg w-full max-w-md">
+                    <div class="absolute -bottom-5 -left-5 bg-white p-4 rounded-xl shadow-lg">
+                        <div class="bg-primary text-white p-3 rounded-lg">
+                            <i data-feather="award" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-2/3 md:pl-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">About <span class="text-primary">Me</span></h2>
+                <p class="text-gray-600 mb-6">With over 2 years of experience in artificial intelligence and web development, I've helped individuals transform their operations through intelligent automation and data-driven decision making.</p>
+                
+                <div class="mb-8">
+                    <h3 class="font-semibold text-xl mb-4 text-gray-900">Education & Certifications</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-4">
+                                <i data-feather="book" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Learning Artificial intelligence</h4>
+                                <p class="text-gray-600">Self Education</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-4">
+                                <i data-feather="award" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Student of Class 11</h4>
+                                <p class="text-gray-600">Udaipur English Medium H.S. School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <h3 class="font-semibold text-xl mb-4 text-gray-900">Personal Interests</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-4">
+                                <i data-feather="chess" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Chess Enthusiast</h4>
+                                <p class="text-gray-600">Competitive player with rapid rating of 1000+</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-4">
+                                <i data-feather="music" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Psychology </h4>
+                                <p class="text-gray-600">Studing human behaviors and habits</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-4">
+                                <i data-feather="cpu" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">DIY Electronics</h4>
+                                <p class="text-gray-600">Building Arduino/Raspberry Pi projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+<h3 class="font-semibold text-xl mb-4 text-gray-900">Technical Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition duration-300">Python</span>
+                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition duration-300">C++</span>
+                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition duration-300">JavaScript</span>
+                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition duration-300">DSA</span>
+                    </div>
+                </div>
+</div>
+        </div>
+    </section>
+    <!-- Arduino Projects Section -->
+    <section id="arduino" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Arduino <span class="text-primary">Projects</span></h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Watch my YouTube videos showcasing my Arduino creations and IoT solutions.</p>
+            <p class="text-gray-600 max-w-2xl mx-auto">Feature not added yet.......</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Video 1 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm p-4">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-64 md:h-80 rounded-lg" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2"></h3>
+                    <p class="text-gray-600"></p>
+                </div>
+            </div>
+            
+            <!-- Video 2 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm p-4">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-64 md:h-80 rounded-lg" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2"></h3>
+                    <p class="text-gray-600"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-secondary px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured <span class="text-primary">Projects</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore my portfolio of AI/ML models and web applications that demonstrate my technical expertise and problem-solving approach.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto">Not listed Yet..........</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-sm transition duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary hover:border-opacity-50 hover:border">
+<div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/technology/640x360/101" alt="AI Project" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-3">
+                                <i data-feather="activity" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-lg"></h3>
+                        </div>
+                        <p class="text-gray-600 mb-4"></p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs"></span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs"></span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs"></span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-primary hover:text-primary-dark font-medium flex items-center">
+                                <i data-feather="github" class="w-4 h-4 mr-1"></i> Code
+                            </a>
+                            <a href="#" class="text-primary hover:text-primary-dark font-medium flex items-center">
+                                <i data-feather="external-link" class="w-4 h-4 mr-1"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-sm transition duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary hover:border-opacity-50 hover:border">
+<div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/technology/640x360/102" alt="Web Project" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-3">
+                                <i data-feather="globe" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-lg"></h3>
+                        </div>
+                        <p class="text-gray-600 mb-4"></p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs"></span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs"></span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs"></span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-primary hover:text-primary-dark font-medium flex items-center">
+                                <i data-feather="github" class="w-4 h-4 mr-1"></i> Code
+                            </a>
+                            <a href="#" class="text-primary hover:text-primary-dark font-medium flex items-center">
+                                <i data-feather="external-link" class="w-4 h-4 mr-1"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-sm transition duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary hover:border-opacity-50 hover:border">
+<div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/technology/640x360/103" alt="ML Project" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-3">
+                                <i data-feather="bar-chart-2" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-lg"></h3>
+                        </div>
+                        <p class="text-gray-600 mb-4"></p>
+                            
+</body>
+</html>
